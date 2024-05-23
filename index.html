@@ -201,6 +201,8 @@ Error message and password prompt
 
 <li>$:/state/sidebar</li>
 
+<li>$:/state/strollhometabs--714734366</li>
+
 <li>$:/state/tab--1963855381</li>
 
 <li>$:/state/tab--2112689675</li>
@@ -280,6 +282,7 @@ Error message and password prompt
 {"title":"$:/state/http-requests","text":"0"},
 {"created":"20240522034328816","title":"$:/state/showeditpreview","text":"yes","modified":"20240522034328816"},
 {"created":"20240522034738324","title":"$:/state/sidebar","text":"yes","modified":"20240522045114683"},
+{"created":"20240523040119975","title":"$:/state/strollhometabs--714734366","text":"河流图绘制","modified":"20240523040120234"},
 {"created":"20240522032634047","title":"$:/state/tab--1963855381","text":"$:/themes/tiddlywiki/vanilla/themetweaks","modified":"20240522032655326"},
 {"created":"20240522032607735","title":"$:/state/tab--2112689675","text":"$:/core/ui/ControlPanel/Advanced","modified":"20240522032607735"},
 {"created":"20240522032059560","title":"$:/state/tab--708812420","text":"$:/core/ui/ControlPanel/Plugins/Add/Plugins","modified":"20240522032142545"},
@@ -297,7 +300,7 @@ Error message and password prompt
 {"created":"20240522032713138","title":"$:/themes/tiddlywiki/vanilla/options/sidebarlayout","text":"fluid-fixed","modified":"20240522032713138"},
 {"created":"20240522032648575","title":"$:/view","text":"classic","modified":"20240522032649975"},
 {"created":"20240523035919214","text":"\n```py\nimport holoviews as hv\nfrom holoviews import opts\nimport pandas as pd\nimport numpy as np\nhv.extension('bokeh')\n\n# Sample matrix representing the export volumes between 5 countries\nexport_data = np.array([[0, 50, 30, 20, 10],   \n                        [10, 0, 40, 30, 20],   \n                        [20, 10, 0, 35, 25],   \n                        [30, 20, 10, 0, 40],   \n                        [25, 15, 30, 20, 0]]) \n\nlabels = ['USA', 'China', 'Germany', 'Japan', 'India']\n\n# Creating a pandas DataFrame\ndf = pd.DataFrame(export_data, index=labels, columns=labels)\ndf = df.stack().reset_index()\n\ndf.columns = ['source', 'target', 'value']\n\n# Creating a Chord object\nchord = hv.Chord(df)\n\n# Styling the Chord diagram\nchord.opts(\n    opts.Chord(\n        cmap='Category20', edge_cmap='Category20', \n        labels='source', label_text_font_size='10pt',  \n        edge_color='source', node_color='index', \n        width=700, height=700 \n    )\n).select(value=(5, None)) \n\n# Display the plot\nchord\n```\n","tags":"python 可视化 图表绘制","title":"河流图绘制","modified":"20240523040053934"},
-{"created":"20240522033724149","text":"\u003C\u003Ctabs \"[[河流图绘制]] [[The TiddlyWiki layout]] [[Using tiddlers]] [[Linking in Stroll, part 1]] [[Linking in Stroll, part 2]] [[Linking in Stroll, part 3]] [[New tiddler linked here]] [[Two columns]] [[Adjust the sidebar]] [[Advanced stuff]] [[Troubleshooting]] [[Stroll vs Roam]] [[Recent updates to Stroll]] [[Download Stroll]] [[Updating Stroll]] [[Add Stroll to your TW]] [[Remove Stroll from your TW]] [[Get goodies]] [[Help / Acknowledgments]] [[Help us]]\" \"[[A stroll through Stroll]]\" \"$:/state/strollhometabs\" \"tc-vertical\">>","tags":"translation learning","title":"Index","modified":"20240523040117132","type":"text/vnd.tiddlywiki"}
+{"created":"20240522033724149","text":"\u003C\u003Ctabs \"[[河流图绘制]] [[The TiddlyWiki layout]] [[Using tiddlers]] [[Linking in Stroll, part 1]] [[Linking in Stroll, part 2]] [[Linking in Stroll, part 3]] [[New tiddler linked here]] [[Two columns]] [[Adjust the sidebar]] [[Advanced stuff]] [[Troubleshooting]] [[Stroll vs Roam]] [[Recent updates to Stroll]] [[Download Stroll]] [[Updating Stroll]] [[Add Stroll to your TW]] [[Remove Stroll from your TW]] [[Get goodies]] [[Help / Acknowledgments]] [[Help us]]\" \"[[A stroll through Stroll]]\" \"$:/state/strollhometabs\" \"tc-vertical\">>","tags":"","title":"Index","modified":"20240523040132420","type":"text/vnd.tiddlywiki"}
 ]</script><div id="storeArea" style="display:none;"></div>
 <!--~~ Library modules ~~-->
 <div id="libraryModules" style="display:none;">
