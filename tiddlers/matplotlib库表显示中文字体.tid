@@ -1,0 +1,10 @@
+created: 20240523092259771
+creator: Gege Liu
+modified: 20240523093814260
+modifier: Gege Liu
+tags: python 可视化
+title: matplotlib库表显示中文字体
+
+```py
+plt.rcParams['font.family'] = 'SimHei'  # 替换为你选择的字体，一般选择中文字体
+```

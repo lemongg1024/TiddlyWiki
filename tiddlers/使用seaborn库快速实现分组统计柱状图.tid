@@ -1,0 +1,71 @@
+created: 20240523094122430
+creator: Gege Liu
+modified: 20240523094915661
+modifier: Gege Liu
+tags: python 可视化 图表绘制 seaborn
+title: 使用seaborn库快速实现分组统计柱状图
+
+```py
+import seaborn as sns
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib
+import warnings
+print("matplotlib:", matplotlib.__version__)
+warnings.filterwarnings("ignore")
+titanic = sns.load_dataset("titanic")
+df = titanic[titanic['who'].isin(['man','woman'])].query("deck!='G'")
+print(df.describe())
+from pandas.api.types import CategoricalDtype
+df['deck']=df['deck'].astype( CategoricalDtype(categories=['A','B','C','D','E','F'], ordered=True))
+df['deck'].unique()
+
+f,axes = plt.subplots(3,1, figsize=(6,6.5),dpi=200, )
+ax =axes[0]
+ax=sns.barplot(data=df, x="deck", 
+               y="age", hue="who", errorbar=("ci", 85),estimator=np.mean,
+               palette=['#5CBB45','#DEEBB5'],
+               capsize=.2,
+               width=0.5, #设置柱状图的宽度
+               errwidth=1,
+               ax=ax,orient='v',) #estimator=np.mean, ci=85,
+
+sns.stripplot(data=df, x="deck",
+              y="age",hue="who",dodge=True,jitter=True, ax=ax,
+               palette=['green','#5CBB45'],size=3,orient='v',legend=False)
+h, l = ax.get_legend_handles_labels()
+ax.legend(h, ['man','woman'],ncol=1,frameon=False,loc='upper right')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+ax.axes.xaxis.set_visible(False)
+
+ax =axes[1]
+sns.violinplot(data=df, x="deck",hue="who",palette=['#4057A8','#22AFE5'],
+              y="age",dodge=True, ax=ax,orient='v',legend=False)
+ax=sns.swarmplot(data=df, x="deck",hue="who",size=3,palette=['#40F7A8','#4057A8'],
+              y="age",dodge=True, ax=ax,orient='v',legend=False)
+
+h, l = ax.get_legend_handles_labels()
+ax.legend(h, ['man','woman'],ncol=1,frameon=False,loc='upper right')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+ax.spines['bottom'].set_visible(False)
+ax.axes.xaxis.set_visible(False)
+ax.set_yticks([20*i for i in range(6)])
+ax.set_yticklabels([20*i for i in range(6)])
+
+ax =axes[2]
+ax=sns.pointplot(data=df, x="deck", y="age", orient='v',dodge=True,
+                  markers= "x",linestyles= "--",errwidth=1,
+                  errorbar=("se",3 ),  capsize=.2, scale=0.5, ax=ax,color='#43978F',join=True,label='total') #['#43978F','#ABD0F1']
+
+h, l = ax.get_legend_handles_labels()
+ax.legend(h, ['total'],ncol=1,frameon=False,loc='upper right')
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+plt.subplots_adjust(hspace=0.1)
+plt.show()
+```
+
+[img[https://raw.githubusercontent.com/lemongg1024/PicGo/main/20240523174828.png]]

@@ -1,0 +1,12 @@
+author: JeremyRuston
+core-version: >=5.0.0
+created: 20201227095110795
+dependents: $:/themes/tiddlywiki/vanilla
+description: Removes borders from tiddlers
+modified: 20210301164504315
+name: Seamless
+plugin-type: theme
+tags: rr-TW5 rr-plugins
+title: $:/themes/tiddlywiki/seamless
+type: application/json
+version: 5.1.23
